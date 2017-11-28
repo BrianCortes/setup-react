@@ -22,14 +22,18 @@ export const PATHS = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         exclude: /(node_modules)/,
         use: {
           loader: 'babel-loader'
         }
       }
     ]
-  }
+  },
+  resolve: {
+    extensions: [".js", ".jsx", ".json"],
+    modules: [PATHS.app, "../node_modules"]
+  },
 };
 
 export default commonConfig;

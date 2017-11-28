@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Squere from 'A/component'
 
 ReactDOM.render(
-  <h1>maestro</h1>,
+  <Squere />,
   document.getElementById('root')
 );
