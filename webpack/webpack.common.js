@@ -24,9 +24,23 @@ export const PATHS = {
       {
         test: /\.jsx?$/,
         exclude: /(node_modules)/,
-        use: {
-          loader: 'babel-loader'
-        }
+        use: [
+          {
+            loader: 'babel-loader'
+          },
+          {
+            loader: 'prettier-webpack-loader',
+            options: {
+              printWidth: 80,
+              tabWidth: 2,
+              useTabs: false,
+              semi: true,
+              singleQuote: true,
+              trailingComma: 'es5',
+              jsxBracketSameLine: false,
+            }
+          }
+        ]
       }
     ]
   },
