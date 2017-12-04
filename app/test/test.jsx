@@ -1,4 +1,5 @@
 import React from 'react';
+import './styles.sass';
 
 class Square extends React.Component {
   constructor(props) {
@@ -7,7 +8,7 @@ class Square extends React.Component {
 
   render() {
     return [
-      <h1>hola</h1>,
+      <h1 className="brian">hola</h1>,
       <li key="A">First item</li>,
       <li key="B">Second item</li>,
       <li key="C">Third item</li>,
