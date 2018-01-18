@@ -1,5 +1,5 @@
-import commonConfig from './webpack.common.js'
-
+import commonConfig from './webpack.common.js';
+import merge from 'webpack-merge';
 const config = {
   devServer: {
     watchOptions: {
@@ -14,6 +14,25 @@ const config = {
     host: process.env.HOST, // Defaults to `localhost`
     port: process.env.PORT, // Defaults to 8080
   },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader' },
+        ],
+      },
+      {
+        test: /\.s(a|c)ss$/,
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader' },
+          { loader: 'sass-loader' },
+        ],
+      },
+    ],
+  },
 };
 
-export default Object.assign({}, commonConfig, config);
+export default merge(commonConfig, config);

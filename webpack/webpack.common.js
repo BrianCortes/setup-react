@@ -1,22 +1,23 @@
-import HtmlWebpackPlugin from "html-webpack-plugin";
-const path = require("path");
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+const path = require('path');
 
 export const PATHS = {
-  app: path.join(__dirname, "..", "app"),
-  build: path.join(__dirname, "..", "build"),
+  root: path.join(__dirname, '..'),
+  app: path.join(__dirname, '..', 'app'),
+  build: path.join(__dirname, '..', 'build'),
 };
 
- const commonConfig = {
+const commonConfig = {
   entry: {
     app: PATHS.app,
   },
   output: {
     path: PATHS.build,
-    filename: "[name].js",
+    filename: '[name].js',
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'app/index.html'
+      template: 'app/index.html',
     }),
   ],
   module: {
@@ -26,7 +27,7 @@ export const PATHS = {
         exclude: /(node_modules)/,
         use: [
           {
-            loader: 'babel-loader'
+            loader: 'babel-loader',
           },
           {
             loader: 'prettier-webpack-loader',
@@ -38,23 +39,15 @@ export const PATHS = {
               singleQuote: true,
               trailingComma: 'es5',
               jsxBracketSameLine: false,
-            }
-          }
-        ]
-      },
-      {
-        test: /\.s(a|c)ss$/,
-        use: [
-          { loader: "style-loader" },
-          { loader: "css-loader" },
-          { loader: "sass-loader" }
+            },
+          },
         ],
       },
     ],
   },
   resolve: {
-    extensions: [".js", ".jsx", ".json"],
-    modules: [PATHS.app, "../node_modules"]
+    extensions: ['.js', '.jsx', '.json'],
+    modules: [PATHS.app, '../node_modules'],
   },
 };
 
